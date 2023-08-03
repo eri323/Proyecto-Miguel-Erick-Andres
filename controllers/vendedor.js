@@ -11,10 +11,11 @@ const httpVendedor = {
             res.status(400).json({ error })
         }
     },
-    getVendeorId: async (req, res)=>{
+    getVendedorId: async (req, res)=>{
+        console.log("Hl");
         const {id}= req.params
         try {
-            const vendedor = await Vendedor.findById({id})
+            const vendedor = await Vendedor.findById(id)
             res.json({vendedor})
         } catch (error) {
             res.status(400).json({ error })
@@ -48,7 +49,7 @@ const httpVendedor = {
     deleteVendedor: async (req, res)=>{
         try {
             const {id}= req.params 
-            const vendedor = await Vendedor.findByIdAndDelete({id})
+            const vendedor = await Vendedor.findByIdAndDelete(id)
             res.json({vendedor})
         } catch (error) {
             res.status(400).json({ error })

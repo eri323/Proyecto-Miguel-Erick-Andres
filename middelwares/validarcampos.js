@@ -5,10 +5,10 @@ const validarCampos = (req, res, next) => {
     if (!errors.isEmpty()) {
 
         if (req.codeError) {
-            return res.status(req.codeError).json({ error: "Error de datos" });
+            return res.status(req.codeError).json({ error: errors });
         }
 
-        return res.status(400).json({ error: "Error de validación de datos" });
+        return res.status(400).json({ error: errors });
     }
 
     next();

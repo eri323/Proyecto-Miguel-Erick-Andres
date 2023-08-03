@@ -29,16 +29,7 @@ const httpTransporte= {
         }
     },
 
- /*    postCliente: async (req, res) => {
-        try {
-            const { CC_cliente, Nombre_cliente, Telefono_cliente } = req.body
-            const cliente = new InformacionCliente({ CC_cliente, Nombre_cliente, Telefono_cliente })
-            cliente.save()
-            res.json({ cliente })
-        } catch (error) {
-            res.status(400).json({ error })
-        }
-    }, */
+
 
 
 
@@ -55,7 +46,7 @@ const httpTransporte= {
     deleteTransporte: async (req, res) =>{
         try {
             const {id}= req.params
-            const transporte = await InformacionTransporte.findByIdAndDelete({id})
+            const transporte = await InformacionTransporte.findByIdAndDelete(id)
             res.json({transporte})
         } catch (error) {
             res.status(400).json({ error })

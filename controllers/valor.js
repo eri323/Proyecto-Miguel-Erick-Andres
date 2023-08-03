@@ -12,7 +12,7 @@ const httpValor = {
     getValorId: async (req, res)=>{
         const {id}=req.params 
         try {
-            const valor = await Valor.findById({id})
+            const valor = await Valor.findById(id)
             res.json({valor})
         } catch (error) {
             res.status(400).json({ error })
@@ -32,7 +32,7 @@ const httpValor = {
         try {
             const {id}= req.params
             const { precio, total }= req.body
-            const valor = await valor.findByIdAndUpdate(id, { precio, total },{new:true})
+            const valor = await Valor.findByIdAndUpdate(id, { precio, total },{new:true})
             res.json({valor})
         } catch (error) {
             res.status(400).json({ error })
@@ -41,7 +41,7 @@ const httpValor = {
     deleteValor: async (req, res)=>{
         try {
             const {id}=req.params
-            const valor = await Valor.findByIdAndDelete({id})
+            const valor = await Valor.findByIdAndDelete(id)
             res.json({valor})
         } catch (error) {
             res.status(400).json({ error })

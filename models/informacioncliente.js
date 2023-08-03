@@ -8,4 +8,4 @@ const InformacionCliente = new mongoose.Schema({
     estado: { type: Number, default: 1 }
 })
 
-export default mongoose.model(" InformacionCliente",InformacionCliente)
+export default mongoose.model("InformacionCliente",InformacionCliente)

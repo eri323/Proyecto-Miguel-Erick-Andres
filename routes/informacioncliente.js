@@ -5,17 +5,30 @@ import validarCampos from "../middelwares/validarcampos.js"
 
 const router = new Router()
 
-router.get('/hola', httpinformacioncliente.getCliente)
+router.get('/clientebusca', httpinformacioncliente.getCliente)
 
-router.get('/hola2', httpinformacioncliente.getClienteid)
+router.get('/clientebuscaid/:id', httpinformacioncliente.getClienteid)
 
-router.post('/guardar', [
+router.post('/clientecrear', [
     check("CC_cliente", "Por favor digite numero de cedula").not().isEmpty(),
-    check("password", "Por favor digite contraseña").not().isEmpty(),
     check("Nombre_cliente", "Por favor digite nombre").not().isEmpty(),
     check("Telefono_cliente", "Por favor digite numero de telefono").not().isEmpty(),
     check("Telefono_cliente", "Por favor digite numero de telefono valido").isLength(10),
     validarCampos
 ], httpinformacioncliente.postCliente)
+
+router.delete('/clienteelimina/:id',/* [
+    check("id", "Digite id").not().isEmpty(),
+    check("id", "Digite id").isMongoId()
+], */ httpinformacioncliente.deleteCliente)
+
+router.put('/clientemodificar/:id', [
+    check("CC_cliente", "Por favor digite numero de cedula").not().isEmpty(),
+    check("Nombre_cliente", "Por favor digite nombre").not().isEmpty(),
+    check("Telefono_cliente", "Por favor digite numero de telefono").not().isEmpty(),
+    check("Telefono_cliente", "Por favor digite numero de telefono valido").isLength(10),
+    validarCampos
+], httpinformacioncliente.putCliente)
+
 
 export default router

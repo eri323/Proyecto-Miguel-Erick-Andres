@@ -1,5 +1,5 @@
 import InformacionCliente from "../models/informacioncliente.js"
-import bcryptjs from "bcrypt"
+
 
 
 const httpinformacioncliente = {
@@ -13,10 +13,10 @@ const httpinformacioncliente = {
 
     },
     getClienteid: async (req, res) => {
-        const { id } = req.params
+        const {id} = req.params
         try {
-            const cliente = await InformacionCliente.find({ id })
-            res.json({ cliente })
+            const cliente = await InformacionCliente.findById(id)
+            res.json({cliente})
         } catch (error) {
             res.status(400).json({ error })
         }
@@ -39,7 +39,7 @@ const httpinformacioncliente = {
     deleteCliente: async (req, res) => {
         try {
             const { id } = req.params
-            const cliente = await InformacionCliente.findByIdAndDelete({ id })
+            const cliente = await InformacionCliente.findByIdAndDelete(id)
             res.json({ cliente })
         } catch (error) {
             res.status(400).json({ error })

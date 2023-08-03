@@ -5,13 +5,24 @@ import validarCampos from "../middelwares/validarcampos.js"
 
 const router = new Router()
 
-router.get('/trab', [], httpTransporte.getTransporte)
+router.get('/transbusca', [], httpTransporte.getTransporte)
 
-router.post('/tra', [
+router.get('/transbuscaid/:id', [], httpTransporte.getTransporteId)
+
+router.post('/transcrear', [
     check("Vehiculo", "Identifique el vehiculo").not().isEmpty(),
     check("NumAsientos", "Identifieue el numero de asientos").not().isEmpty(),
     check("horario", "Especifique el horario de buses").not().isEmpty(),
     validarCampos
 ], httpTransporte.postTransporte)
+
+router.put('/transmodificar/:id', [
+    check("Vehiculo", "Identifique el vehiculo").not().isEmpty(),
+    check("NumAsientos", "Identifieue el numero de asientos").not().isEmpty(),
+    check("horario", "Especifique el horario de buses").not().isEmpty(),
+    validarCampos
+], httpTransporte.putTransporte)
+
+router.delete('/transelimina/:id', httpTransporte.deleteTransporte)
 
 export default router
