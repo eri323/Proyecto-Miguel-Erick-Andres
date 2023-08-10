@@ -22,6 +22,32 @@ const httpinfopasaje = {
             res.status(400).json({ error })
         }
     },
+    getTicketsPorFechas: async (req, res) => {
+        try {
+            const { fechaInicio, fechaFin } = req.query;
+
+            if (!fechaInicio || !fechaFin) {
+                return res.status(400).json({ error: 'Debes proporcionar fechas de inicio y fin.' });
+            }
+
+            const Pasaje = await InformacionPasaje.find({
+                fecha_venta: {
+                    $gte: new Date(fechaInicio),
+                    $lte: new Date(fechaFin),
+                },
+            }).populate("Cliente_id")
+                .populate("Transporte_id").
+                populate("Asiento_id").
+                populate("Ruta_id").
+                populate("Vendedor_id", ["Nombre"]).
+                populate("Valor_id")
+
+            res.json({ Pasaje });
+        } catch (error) {
+            res.status(400).json({ error })
+            res.status(500).json({ error: 'Error al obtener los Pasajes.' });
+        }
+    },
     postPasaje: async (req, res) => {
 
         try {

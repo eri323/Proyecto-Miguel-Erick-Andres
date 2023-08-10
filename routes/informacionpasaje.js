@@ -9,6 +9,11 @@ const router = new Router()
 
 router.get('/pasajebusca',[], httpinfoPasaje.getPasaje)
 
+router.get('/pasajebuscafechas',[
+    check("fechaInicio", "Digite fechaInico").not().isEmpty(),
+    check("fechaFin", "Digite fechaFin").not().isEmpty()
+], httpinfoPasaje.getTicketsPorFechas)
+
 router.get('/pasajebuscaid/:id', [
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom(HelperPasaje.existepasajeid),
