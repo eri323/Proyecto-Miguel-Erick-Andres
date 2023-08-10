@@ -48,5 +48,7 @@ router.put('/pasajemodificar/:id', [
     validarCampos
 ], httpinfoPasaje.putPasaje)
 
+router.put('/pasajeinac/:id', httpinfoPasaje.putPasajeinac)
 
+router.put('/pasajeact/:id', httpinfoPasaje.putPasajeact)
 export default router

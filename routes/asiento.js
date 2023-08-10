@@ -23,4 +23,8 @@ router.put('/asientomodificar/:id', [
     check("asientos_comprados", "NaN").not().isEmpty(),
     validarCampos
 ], httpAsiento.putAsiento)
+
+router.put('/asientoinac/:id', httpAsiento.putAsientoinac)
+
+router.put('/asientoact/:id', httpAsiento.putAsientoact)
 export default router

@@ -30,5 +30,7 @@ router.put('/clientemodificar/:id', [
     validarCampos
 ], httpinformacioncliente.putCliente)
 
+router.put('/clienteinac/:id', httpinformacioncliente.putClienteinac)
 
+router.put('/clienteact/:id', httpinformacioncliente.putClienteact)
 export default router

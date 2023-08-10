@@ -25,4 +25,7 @@ router.put('/transmodificar/:id', [
 
 router.delete('/transelimina/:id', httpTransporte.deleteTransporte)
 
+router.put('/transporteinac/:id', httpTransporte.putTransporteinac)
+
+router.put('/transporteact/:id', httpTransporte.putTransporteact)
 export default router

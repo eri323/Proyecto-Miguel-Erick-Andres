@@ -6,7 +6,7 @@ const HelperVendedor = {
         if (!existe) {
             throw new Error(`El id del vendedor no existe ${id}`)
         }
-        req.req.vendedorUpdate = existe
+        req.req.VendedorUpdate = existe
     }
 }
 export default HelperVendedor

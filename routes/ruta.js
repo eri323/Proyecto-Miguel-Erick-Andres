@@ -27,4 +27,9 @@ router.put('/rutamodificar/:id', [
     check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(),
     validarCampos
 ], httpruta.putRuta)
+
+router.put('/rutainac/:id', httpruta.putRutainac)
+
+router.put('/rutaact/:id', httpruta.putRutaact)
+
 export default router

@@ -53,8 +53,8 @@ const httpAsiento = {
     putAsientoinac: async (req, res) => {
         try {
             const { id } = req.params
-            const asiento = await asiento.findByIdAndUpdate(id, { estado: 0 }, { new: true })
-            res.json({ asiento })
+            const Asiento = await asiento.findByIdAndUpdate(id, { estado: 0 }, { new: true })
+            res.json({ Asiento })
         } catch (error) {
             res.status(400).json({ error })
         }
@@ -62,8 +62,8 @@ const httpAsiento = {
     putAsientoact: async (req, res) => {
         try {
             const { id } = req.params
-            const asiento = await asiento.findByIdAndUpdate(id, { estado: 1 }, { new: true })
-            res.json({ asiento })
+            const Asiento = await asiento.findByIdAndUpdate(id, { estado: 1 }, { new: true })
+            res.json({ Asiento })
         } catch (error) {
             res.status(400).json({ error })
         }

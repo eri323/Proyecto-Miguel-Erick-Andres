@@ -55,7 +55,7 @@ const httpTransporte= {
     putTransporteinac: async (req, res) => {
         try {
             const { id } = req.params
-            const  transprte = await InformacionTransporte.findByIdAndUpdate(id, { estado: 0 }, { new: true })
+            const  transporte = await InformacionTransporte.findByIdAndUpdate(id, { estado: 0 }, { new: true })
             res.json({ transporte })
         } catch (error) {
             res.status(400).json({ error })

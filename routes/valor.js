@@ -23,4 +23,8 @@ router.put('/valormodificar/:id',[
     validarCampos
 ], httpValor.putValor)
 
+router.put('/valorinac/:id', httpValor.putValorinac)
+
+router.put('/valoract/:id', httpValor.putValoract)
+
 export default router
