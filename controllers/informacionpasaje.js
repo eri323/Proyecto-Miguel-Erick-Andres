@@ -1,4 +1,5 @@
 import InformacionPasaje from "../models/informacionpasaje.js"
+import vendedor from "../models/vendedor.js"
 const httpinfopasaje = {
     getPasaje: async (req, res) => {
         try {
@@ -45,6 +46,23 @@ const httpinfopasaje = {
             res.json({ Pasaje });
         } catch (error) {
             res.status(400).json({ error })
+            res.status(500).json({ error: 'Error al obtener los Pasajes.' });
+        }
+    },
+    getTicketIdVendedor: async (req, res) => {
+        try {
+            const vendedorId = req.params.vendedorId; 
+
+            const Pasajes = await InformacionPasaje.find({ Vendedor_id: vendedorId })
+                .populate("Cliente_id")
+                .populate("Transporte_id")
+                .populate("Asiento_id")
+                .populate("Ruta_id")
+                .populate("Vendedor_id", ["Nombre"])
+                .populate("Valor_id");
+
+            res.json({ Pasajes });
+        } catch (error) {
             res.status(500).json({ error: 'Error al obtener los Pasajes.' });
         }
     },

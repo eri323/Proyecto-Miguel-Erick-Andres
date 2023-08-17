@@ -20,6 +20,10 @@ router.get('/pasajebuscaid/:id', [
     validarCampos
 ],  httpinfoPasaje.getPasajeId)
 
+
+router.get('/pasajebuscaidvendedor/:id',[], httpinfoPasaje.getTicketIdVendedor)
+
+
 router.post('/pasajecrear', [
     check("Nmro_ticket", "Numero de tickete ausente").not().isEmpty(),
     check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(),
