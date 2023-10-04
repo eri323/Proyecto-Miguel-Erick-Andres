@@ -8,7 +8,7 @@ import informaciontransporte from "./routes/informaciontransporte.js";
 import ruta from "./routes/ruta.js";
 import valor from "./routes/valor.js";
 import vendedor from "./routes/vendedor.js";
-
+import cors from "cors"
 const gestion = express()
 gestion.use(express.json())
 gestion.use("/api/asiento", asiento)
@@ -18,6 +18,8 @@ gestion.use("/api/transporte", informaciontransporte)
 gestion.use("/api/ruta", ruta)
 gestion.use("/api/valor", valor)
 gestion.use("/api/vendedor", vendedor)
+
+gestion.use(cors())
 
 gestion.listen(process.env.PORT, () => {
     console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
