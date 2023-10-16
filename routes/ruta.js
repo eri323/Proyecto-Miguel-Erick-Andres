@@ -21,7 +21,7 @@ router.post('/rutacrear', [
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
     check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(),
-    check("Transporte_id", "Digite el id del transporte").isMongoId(),
+/*     check("Transporte_id", "Digite el id del transporte").isMongoId(), */
     validarCampos
 ], httpruta.postRuta)
 
