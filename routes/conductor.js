@@ -5,7 +5,7 @@ import validarCampos from "../middelwares/validarcampos.js"
 
 const router = new Router()
 
-router.get('/conductorbusca', httpConductor.getConductor)
+router.get('/conductorbusca', [validarCampos], httpConductor.getConductor)
 
 router.post('/conductorcrear', [
     check("nombre", "nombre no especificado ").not().isEmpty(),
