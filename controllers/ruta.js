@@ -46,8 +46,8 @@ const httpRuta = {
     
     postRuta: async (req, res) => {
         try {
-            const {sucursal, Origen, Destino, fecha_salida, Transporte_id}= req.body 
-            const ruta = new Ruta({ sucursal, Origen, Destino, fecha_salida, Transporte_id })
+            const {sucursal, Origen, Destino, fecha_salida}= req.body 
+            const ruta = new Ruta({ sucursal, Origen, Destino, fecha_salida })
             ruta.save()
             res.json({ruta})
         } catch (error) {
@@ -59,8 +59,8 @@ const httpRuta = {
     putRuta: async (req, res) => {
         try {
             const {id}= req.params
-            const { sucursal, Origen, Destino, fecha_salida ,Transporte_id } = req.body
-            const ruta = await Ruta.findByIdAndUpdate(id, { sucursal, Origen, Destino, fecha_salida, Transporte_id },{new:true})
+            const { sucursal, Origen, Destino, fecha_salida } = req.body
+            const ruta = await Ruta.findByIdAndUpdate(id, { sucursal, Origen, Destino, fecha_salida },{new:true})
             res.json({ruta})
         } catch (error) {
             res.status(400).json({ error })
