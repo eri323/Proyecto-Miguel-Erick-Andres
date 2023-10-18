@@ -8,8 +8,8 @@ const router = new Router()
 router.get('/conductorbusca', httpConductor.getConductor)
 
 router.post('/conductorcrear', [
-    check("precio", "precio no especificado ").not().isEmpty(),
-    check("total", "total no especificado").not().isEmpty(),
+    check("nombre", "nombre no especificado ").not().isEmpty(),
+    check("cedula", "cedula no especificado").not().isEmpty(),
     validarCampos
 ], httpConductor.postConductor)
 
@@ -18,8 +18,8 @@ router.get('/conductorbuscaid/:id',httpConductor.getConductorId )
 router.delete('/conductorelimina/:id', httpConductor.deleteConductor)
 
 router.put('/conductormodificar/:id',[
-    check("precio", "precio no especificado ").not().isEmpty(),
-    check("total", "total no especificado").not().isEmpty(),
+    check("nombre", "nombre no especificado ").not().isEmpty(),
+    check("cedula", "cedula no especificado").not().isEmpty(),
     validarCampos
 ], httpConductor.putConductor)
 
