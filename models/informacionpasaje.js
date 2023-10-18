@@ -10,7 +10,7 @@ const InformacionPasaje = new mongoose.Schema({
     Vendedor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Vendedor', required: true },
     Cliente_id: { type: mongoose.Schema.Types.ObjectId, ref:'InformacionCliente', required:true},
     Ruta_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Ruta', required: true },
-    Valor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Valor', required: true },
+    conductor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Conductor', required: true },
     Asiento_id: { type: mongoose.Schema.Types.ObjectId, ref: 'asiento', required: true },
     Transporte_id: { type: mongoose.Schema.Types.ObjectId, ref: 'InformacionTransporte', required: true },
     createdAt: { type: Date, default: Date.now },

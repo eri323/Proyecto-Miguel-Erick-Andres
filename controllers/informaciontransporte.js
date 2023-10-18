@@ -3,7 +3,7 @@ const httpTransporte= {
     getTransporte: async (req,res)=>{
         try {
 
-            const transporte = await InformacionTransporte.find()
+            const transporte = await InformacionTransporte.find().populate("conductor_id")
             res.json({transporte})
         } catch (error) {
             res.status(400).json({ error })
@@ -20,8 +20,8 @@ const httpTransporte= {
     },
     postTransporte: async (req, res)=>{
         try {
-            const {Vehiculo, NumAsientos, horario}= req.body 
-            const transporte = new InformacionTransporte({ Vehiculo, NumAsientos, horario})
+            const {Vehiculo, NumAsientos, conductor_id}= req.body 
+            const transporte = new InformacionTransporte({ Vehiculo, NumAsientos, conductor_id})
             transporte.save()
             res.json({transporte})
         } catch (error) {
@@ -36,8 +36,8 @@ const httpTransporte= {
     putTransporte: async (req, res)=>{
         try {
             const {id} = req.params
-            const { Vehiculo, NumAsientos, horario }= req.body
-            const transporte = await InformacionTransporte.findByIdAndUpdate(id, { Vehiculo, NumAsientos, horario },{new:true})
+            const { Vehiculo, NumAsientos, conductor_id }= req.body
+            const transporte = await InformacionTransporte.findByIdAndUpdate(id, { Vehiculo, NumAsientos, conductor_id },{new:true})
             res.json([transporte])
         } catch (error) {
             res.status(400).json({ error })

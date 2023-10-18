@@ -12,14 +12,14 @@ router.get('/transbuscaid/:id', [], httpTransporte.getTransporteId)
 router.post('/transcrear', [
     check("Vehiculo", "Identifique el vehiculo").not().isEmpty(),
     check("NumAsientos", "Identifieue el numero de asientos").not().isEmpty(),
-    check("horario", "Especifique el horario de buses").not().isEmpty(),
+    check("conductor_id", "Especifique el conductor_id").not().isEmpty(),
     validarCampos
 ], httpTransporte.postTransporte)
 
 router.put('/transmodificar/:id', [
     check("Vehiculo", "Identifique el vehiculo").not().isEmpty(),
     check("NumAsientos", "Identifieue el numero de asientos").not().isEmpty(),
-    check("horario", "Especifique el horario de buses").not().isEmpty(),
+    check("conductor_id", "Especifique el conductor_id").not().isEmpty(),
     validarCampos
 ], httpTransporte.putTransporte)
 
