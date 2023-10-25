@@ -14,7 +14,7 @@ const InformacionPasaje = new mongoose.Schema({
     Asiento_id: { type: mongoose.Schema.Types.ObjectId, ref: 'asiento', required: true },
     Transporte_id: { type: mongoose.Schema.Types.ObjectId, ref: 'InformacionTransporte', required: true },
     createdAt: { type: Date, default: Date.now },
-    estado: { type: Number, default: 1 }
+    estado: { type: Number, default: 1 }    
 })
 
 export default mongoose.model("InformacionPasaje", InformacionPasaje)

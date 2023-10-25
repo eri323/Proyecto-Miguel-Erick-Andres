@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 
-
 const Vendedor = new mongoose.Schema({
     Nombre: { type: String, required: true },
     password: { type: String, required: true, unique: true },
