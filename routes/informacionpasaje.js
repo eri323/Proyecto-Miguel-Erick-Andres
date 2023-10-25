@@ -29,12 +29,12 @@ router.post('/pasajecrear', [
     check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(),
     check("fecha_venta", "Especifique una fecha").not().isEmpty(),
     check("Num_pasajes", "Especifique numero de pasajes").not().isEmpty(),
-    check("Total_pasajes", "Especifique total de pasajes").not().isEmpty(),
+    // check("Total_pasajes", "Especifique total de pasajes").not().isEmpty(),
     check("Vendedor_id", "Digite el id del vendedor").isMongoId(),
     check("Cliente_id", "Digite el id del cliente").isMongoId(),
     check("Ruta_id", "Digite el id de la ruta").isMongoId(),
     check("Valor_id", "Digite el id del valor").isMongoId(),    
-    check("Asiento_id", "Digite el id del asiento").isMongoId(),
+    // check("Asiento_id", "Digite el id del asiento").isMongoId(),
     check("Transporte_id", "Digite el id del transporte").isMongoId(),
     
     validarCampos
@@ -47,12 +47,12 @@ router.put('/pasajemodificar/:id', [
     check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(),
     check("fecha_venta", "Especifique una fecha").not().isEmpty(),
     check("Num_pasajes", "Especifique numero de pasajes").not().isEmpty(),
-    check("Total_pasajes", "Especifique total de pasajes").not().isEmpty(),
+    // check("Total_pasajes", "Especifique total de pasajes").not().isEmpty(),
     check("Vendedor_id", "Digite el id del vendedor").isMongoId(),
     check("Cliente_id", "Digite el id del cliente").isMongoId(),
     check("Ruta_id", "Digite el id de la ruta").isMongoId(),
     check("Valor_id", "Digite el id del valor").isMongoId(),
-    check("Asiento_id", "Digite el id del asiento").isMongoId(),
+    // check("Asiento_id", "Digite el id del asiento").isMongoId(),
     check("Transporte_id", "Digite el id del transporte").isMongoId(),
     validarCampos
 ], httpinfoPasaje.putPasaje)
