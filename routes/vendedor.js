@@ -11,7 +11,7 @@ router.get('/vendedorbusca',  httpVendedor.getVendedor)
 
 router.post('/vendedorcrear', [
     check("Nombre", "Vendedor no identificado").not().isEmpty(),
-   /*  check("password", "Digite su password").not().isEmpty(), */
+    check("password", "Digite su password").not().isEmpty(),
     check("Cedula", "Digite su cedula").not().isEmpty(),
     check("Telefono", "Digite su numero de telefono").not().isEmpty(),
     validarCampos
@@ -28,7 +28,7 @@ router.delete('/vendedorelimina/:id', httpVendedor.deleteVendedor)
 router.put('/vendedormodifica/:id',[
     validarJWT,
     check("Nombre", "Vendedor no identificado").not().isEmpty(),
-   /*  check("password", "Digite su password").not().isEmpty(), */
+    check("password", "Digite su password").not().isEmpty(),
     check("Cedula", "Digite su cedula").not().isEmpty(),
     check("Telefono", "Digite su numero de telefono").not().isEmpty(),
     validarCampos
