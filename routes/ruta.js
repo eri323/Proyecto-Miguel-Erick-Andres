@@ -20,7 +20,7 @@ router.post('/rutacrear', [
     check("sucursal", "Sucursal no identificada").not().isEmpty(),
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
-    check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(),
+   /*  check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(), */
 /*     check("Transporte_id", "Digite el id del transporte").isMongoId(), */
     validarCampos
 ], httpruta.postRuta)
@@ -30,7 +30,9 @@ router.put('/rutamodificar/:id', [
     check("sucursal", "Sucursal no identificada").not().isEmpty(),
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
-    check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(),
+
+
+
     validarCampos
 ], httpruta.putRuta)
 

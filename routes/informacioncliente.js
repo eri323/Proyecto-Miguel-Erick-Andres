@@ -23,6 +23,9 @@ router.delete('/clienteelimina/:id',/* [
 ], */ httpinformacioncliente.deleteCliente)
 
 router.put('/clientemodificar/:id', [
+
+
+    
     check("CC_cliente", "Por favor digite numero de cedula").not().isEmpty(),
     check("Nombre_cliente", "Por favor digite nombre").not().isEmpty(),
     check("Telefono_cliente", "Por favor digite numero de telefono").not().isEmpty(),
