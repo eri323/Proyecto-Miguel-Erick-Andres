@@ -36,7 +36,6 @@ router.put(
   "/rutamodificar/:id",
   [
     check("hora_salida", "hora-salida no identificada").not().isEmpty(),
-
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
 
