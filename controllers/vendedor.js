@@ -23,11 +23,11 @@ const httpVendedor = {
     },
     postVendedor : async (req, res)=>{
         try {
-            const {Nombre, Cedula, Telefono}= req.body
-            const vendedor = new Vendedor({ Nombre, Cedula, Telefono })
+            const {Nombre, password, Cedula, Telefono}= req.body
+            const vendedor = new Vendedor({ Nombre, Cedula,password, Telefono })
 
-            /* const salt = bcryptjs.genSaltSync();
-            vendedor.password = bcryptjs.hashSync(password, salt) */
+            const salt = bcryptjs.genSaltSync();
+            vendedor.password = bcryptjs.hashSync(password, salt) 
 
 
             await vendedor.save()
