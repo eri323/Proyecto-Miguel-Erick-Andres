@@ -26,8 +26,8 @@ const httpVendedor = {
             const {Nombre, Cedula, Telefono}= req.body
             const vendedor = new Vendedor({ Nombre, Cedula, Telefono })
 
-            const salt = bcryptjs.genSaltSync();
-            vendedor.password = bcryptjs.hashSync(password, salt) 
+         /*    const salt = bcryptjs.genSaltSync();
+            vendedor.password = bcryptjs.hashSync(password, salt)  */
 
 
             await vendedor.save()
