@@ -1,41 +1,51 @@
-import { Router } from "express"
-import httpruta from "../controllers/ruta.js"
-import {check} from "express-validator"
-import validarCampos from "../middelwares/validarcampos.js"
+import { Router } from "express";
+import httpruta from "../controllers/ruta.js";
+import { check } from "express-validator";
+import validarCampos from "../middelwares/validarcampos.js";
 
-const router = new Router()
+const router = new Router();
 
-router.get('/rutabusca', httpruta.getRuta)
+router.get("/rutabusca", httpruta.getRuta);
 
-router.get('/rutabuscaid/:id', httpruta.getRutaId)
+router.get("/rutabuscaid/:id", httpruta.getRutaId);
 
-router.get('/rutabuscafechas',[
+router.get(
+  "/rutabuscafechas",
+  [
     check("fechaInicio", "Digite fechaInico").not().isEmpty(),
-    check("fechaFin", "Digite fechaFin").not().isEmpty()
-], httpruta.getRutasPorFecha)
+    check("fechaFin", "Digite fechaFin").not().isEmpty(),
+  ],
+  httpruta.getRutasPorFecha
+);
 
-router.delete('/rutaelimina/:id', httpruta.deleteRuta)
+router.delete("/rutaelimina/:id", httpruta.deleteRuta);
 
-router.post('/rutacrear', [
-    check("sucursal", "Sucursal no identificada").not().isEmpty(),
+router.post(
+  "/rutacrear",
+  [
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
-    check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(),
-/*     check("Transporte_id", "Digite el id del transporte").isMongoId(), */
-    validarCampos
-], httpruta.postRuta)
+    check("hora_salida", "hora-salida no identificada").not().isEmpty(),
+    /*     check("Transporte_id", "Digite el id del transporte").isMongoId(), */
+    validarCampos,
+  ],
+  httpruta.postRuta
+);
 
-
-router.put('/rutamodificar/:id', [
-    check("sucursal", "Sucursal no identificada").not().isEmpty(),
+router.put(
+  "/rutamodificar/:id",
+  [
+    check("hora_salida", "hora-salida no identificada").not().isEmpty(),
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
-    check("fecha_salida", "Fecha-salida no identificada").not().isEmpty(),
-    validarCampos
-], httpruta.putRuta)
 
-router.put('/rutainac/:id', httpruta.putRutainac)
+    validarCampos,
+  ],
+  httpruta.putRuta
+);
 
-router.put('/rutaact/:id', httpruta.putRutaact)
+router.put("/rutainac/:id", httpruta.putRutainac);
 
-export default router
+router.put("/rutaact/:id", httpruta.putRutaact);
+
+export default router;
