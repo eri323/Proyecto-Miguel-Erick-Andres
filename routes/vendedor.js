@@ -35,7 +35,10 @@ router.put('/vendedormodifica/:id',[
 ], httpVendedor.putVendedor)
 
 
-router.post('/login', httpVendedor.login)
+router.post('/login', [
+    check("Nombre" , "Usuario no identificado en la base de datos"),
+    check("password", "Contraseña incorrecta"),
+], httpVendedor.login)
 
 router.put('/vendedorinac/:id', httpVendedor.putVendedorinac)
 
