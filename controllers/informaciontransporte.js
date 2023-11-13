@@ -3,7 +3,7 @@ const httpTransporte= {
     getTransporte: async (req,res)=>{
         try {
 
-            const transporte = await InformacionTransporte.find().populate("conductor_id",["nombre"])
+            const transporte = await InformacionTransporte.find().populate("conductor_id")
             res.json({transporte})
         } catch (error) {
             res.status(400).json({ error })
