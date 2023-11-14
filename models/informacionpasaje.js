@@ -5,7 +5,7 @@ const InformacionPasaje = new mongoose.Schema({
     Nmro_ticket: { type: String, required: true },
     tipo_venta: { type: String, required: true },
     fecha_venta: { type: Date, required: true, default: Date.now },
-    Num_pasajes: { type: Number, required: true },
+    /* Num_pasajes: { type: Number, required: true }, */
     // Total_pasajes: { type: Number, required: true },
     Vendedor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Vendedor', required: true },
     Cliente_id: { type: mongoose.Schema.Types.ObjectId, ref:'InformacionCliente', required:true},
