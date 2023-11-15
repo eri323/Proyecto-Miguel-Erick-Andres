@@ -69,8 +69,8 @@ const httpinfopasaje = {
     postPasaje: async (req, res) => {
 
         try {
-            const { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id } = req.body
-            const pasaje = new InformacionPasaje({ Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id })
+            const { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id,   Transporte_id } = req.body
+            const pasaje = new InformacionPasaje({ Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id,   Transporte_id })
             await pasaje.save()
             res.json({ pasaje })
         } catch (error) {
@@ -81,8 +81,8 @@ const httpinfopasaje = {
     putPasaje: async (req, res) => {
         try {
             const { id } = req.params
-            const { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id } = req.body
-            const pasaje = await InformacionPasaje.findByIdAndUpdate(id, { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id, Transporte_id }, { new: true })
+            const { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id,   Transporte_id } = req.body
+            const pasaje = await InformacionPasaje.findByIdAndUpdate(id, { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id,  Transporte_id }, { new: true })
             res.json({ pasaje })
         } catch (error) {
             res.status(400).json({ error })
