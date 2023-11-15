@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 const Ruta = new mongoose.Schema({
-    
+    codigo: {type: Number,required:true},
     Origen: { type: String, required: true },
     Destino: { type: String, required: true },
     hora_salida: { type: String, required: true },

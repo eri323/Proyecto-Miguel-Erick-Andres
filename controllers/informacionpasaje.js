@@ -114,6 +114,34 @@ const httpinfopasaje = {
         } catch (error) {
             res.status(400).json({ error })
         }
+    },
+    buscarRuta:async (req, res) =>{
+        const {codigo, bus, fecha} = req.query;
+        const idRuta = await Ruta.findOne({codigo})
+        const idBus = await Bus.findOne({num_vehiculo:bus})
+    
+        const f1 = new Date(fecha+"T00:00:00.000Z")
+        const f2 = new Date(fecha+"T23:59:59.000Z")
+        const buscar= await Ticket.find({
+          $and:[
+            {ruta:idRuta._id},
+            {vehiculo:idBus._id},
+            {fecha_salida:
+              {$gte: f1,
+              $lte: f2 }
+            },
+          ]
+        }).populate("vehiculo")
+        .populate("ruta")
+        .populate("cliente")
+
+        let puestos=[]
+
+        buscar.forEach((r,i)=>{
+          puestos.push(r.numero_puesto)
+        })
+
+        res.json({buscar,  puestos})
     }
 }
 

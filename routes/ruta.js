@@ -26,6 +26,7 @@ router.post(
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
     check("hora_salida", "hora-salida no identificada").not().isEmpty(),
+    check("codigo"," Codigo no identificado").not().isEmpty(),
     /*     check("Transporte_id", "Digite el id del transporte").isMongoId(), */
     validarCampos,
   ],
@@ -38,6 +39,7 @@ router.put(
     check("hora_salida", "hora-salida no identificada").not().isEmpty(),
     check("Origen", "Origen no identificada").not().isEmpty(),
     check("Destino", "Destino no identificada").not().isEmpty(),
+    check("codigo","Codigo no registrado en la base de datos"),
 
     validarCampos,
   ],
