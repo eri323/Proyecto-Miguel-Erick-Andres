@@ -69,8 +69,8 @@ const httpinfopasaje = {
     postPasaje: async (req, res) => {
 
         try {
-            const { Nmro_ticket, tipo_venta, fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id } = req.body
-            const pasaje = new InformacionPasaje({ Nmro_ticket, tipo_venta, fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id })
+            const { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id } = req.body
+            const pasaje = new InformacionPasaje({ Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id })
             await pasaje.save()
             res.json({ pasaje })
         } catch (error) {
@@ -81,8 +81,8 @@ const httpinfopasaje = {
     putPasaje: async (req, res) => {
         try {
             const { id } = req.params
-            const { Nmro_ticket, tipo_venta, fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id } = req.body
-            const pasaje = await InformacionPasaje.findByIdAndUpdate(id, { Nmro_ticket, tipo_venta, fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id, Transporte_id }, { new: true })
+            const { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id,  Transporte_id } = req.body
+            const pasaje = await InformacionPasaje.findByIdAndUpdate(id, { Nmro_ticket,/*  tipo_venta, */ fecha_venta, /* Num_pasajes */ Vendedor_id, Cliente_id, Ruta_id, Valor_id, Transporte_id }, { new: true })
             res.json({ pasaje })
         } catch (error) {
             res.status(400).json({ error })
@@ -117,12 +117,12 @@ const httpinfopasaje = {
     },
     buscarRuta:async (req, res) =>{
         const {codigo, bus, fecha} = req.query;
-        const idRuta = await Ruta.findOne({codigo})
-        const idBus = await Bus.findOne({num_vehiculo:bus})
+        const idRuta = await Ruta_id.findOne({codigo})
+        const idBus = await  Transporte_id.findOne({NumBus:bus})
     
         const f1 = new Date(fecha+"T00:00:00.000Z")
         const f2 = new Date(fecha+"T23:59:59.000Z")
-        const buscar= await Ticket.find({
+        const buscar= await InformacionPasaje.find({
           $and:[
             {ruta:idRuta._id},
             {vehiculo:idBus._id},

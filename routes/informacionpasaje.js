@@ -26,7 +26,7 @@ router.get('/pasajebuscaidvendedor/:id',[], httpinfoPasaje.getTicketIdVendedor)
 
 router.post('/pasajecrear', [
     check("Nmro_ticket", "Numero de tickete ausente").not().isEmpty(),
-    check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(),
+   /*  check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(), */
     check("fecha_venta", "Especifique una fecha").not().isEmpty(),
     //check("Num_pasajes", "Especifique numero de pasajes").not().isEmpty(),
     // check("Total_pasajes", "Especifique total de pasajes").not().isEmpty(),
@@ -44,7 +44,7 @@ router.delete('/pasajeelimina/:id', httpinfoPasaje.deletePasaje)
 
 router.put('/pasajemodificar/:id', [
     check("Nmro_ticket", "Numero de tickete ausente").not().isEmpty(),
-    check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(),
+   /*  check("tipo_venta", "Especifique el tipo de venta").not().isEmpty(), */
     check("fecha_venta", "Especifique una fecha").not().isEmpty(),
     // check("Num_pasajes", "Especifique numero de pasajes").not().isEmpty(), 
     // check("Total_pasajes", "Especifique total de pasajes").not().isEmpty(),
