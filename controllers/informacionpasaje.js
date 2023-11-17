@@ -43,7 +43,7 @@ const httpinfopasaje = {
         },
       })
         .populate("Cliente_id")
-           .populate("Transporte_id",["conductor_id"])
+        .populate("Transporte_id",["conductor_id"])
         
         .populate("Ruta_id")
         .populate("Vendedor_id")
