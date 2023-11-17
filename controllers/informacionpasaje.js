@@ -18,7 +18,7 @@ const httpinfopasaje = {
     try {
       const pasaje = await InformacionPasaje.findById(id)
         .populate("Cliente_id")
-           .populate("Transporte_id",["conductor_id"])
+           .populate("Transporte_id",["NumBus"],["Vehiculo"],["conductor_id.nombre"])
         .populate("Ruta_id")
         .populate("Vendedor_id")
         .res.json({ pasaje });
