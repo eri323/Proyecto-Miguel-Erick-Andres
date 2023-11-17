@@ -5,7 +5,7 @@ const httpinfopasaje = {
     try {
       const pasaje = await InformacionPasaje.find()
         .populate("Cliente_id")
-        .populate("Transporte_id",["NumBus"],["Vehiculo"]/* ,["conductor_id"] */)
+        .populate("Transporte_id",["NumBus"]/* ,["conductor_id"] */)
         .populate("Ruta_id")
         .populate("Vendedor_id");
       res.json({ pasaje });
