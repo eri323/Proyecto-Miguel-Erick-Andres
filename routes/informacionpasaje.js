@@ -8,6 +8,7 @@ import HelperPasaje from "../helpers/db-holder.js"
 const router = new Router()
 
 router.get('/pasajebusca',[], httpinfoPasaje.getPasaje)
+router.get('/pasajebuscar',[], httpinfoPasaje.getPasaje)
 
 router.get('/pasajebuscafechas',[
     check("fechaInicio", "Digite fechaInico").not().isEmpty(),
