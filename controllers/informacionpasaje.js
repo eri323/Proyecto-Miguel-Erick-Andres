@@ -5,7 +5,7 @@ const httpinfopasaje = {
     try {
       const pasaje = await InformacionPasaje.find()
         .populate("Cliente_id")
-        .populate("Transporte_id")
+        .populate("Transporte_id",["conductor_id"])
         .populate("Ruta_id")
         .populate("Vendedor_id");
       res.json({ pasaje });
@@ -18,7 +18,7 @@ const httpinfopasaje = {
     try {
       const pasaje = await InformacionPasaje.findById(id)
         .populate("Cliente_id")
-        .populate("Transporte_id")
+           .populate("Transporte_id",["conductor_id"])
         .populate("Ruta_id")
         .populate("Vendedor_id")
         .res.json({ pasaje });
@@ -43,7 +43,7 @@ const httpinfopasaje = {
         },
       })
         .populate("Cliente_id")
-        .populate("Transporte_id")
+           .populate("Transporte_id",["conductor_id"])
         
         .populate("Ruta_id")
         .populate("Vendedor_id")
@@ -61,7 +61,7 @@ const httpinfopasaje = {
 
       const Pasajes = await InformacionPasaje.find({ Vendedor_id: vendedorId })
         .populate("Cliente_id")
-        .populate("Transporte_id")
+           .populate("Transporte_id",["conductor_id"])
 
         .populate("Ruta_id")
         .populate("Vendedor_id")
