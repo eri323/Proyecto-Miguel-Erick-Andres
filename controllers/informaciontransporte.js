@@ -22,7 +22,7 @@ const httpTransporte= {
         try {
             const {Vehiculo, NumAsientos, conductor_id, NumBus, Soat}= req.body 
             const transporte = new InformacionTransporte({ Vehiculo, NumAsientos, conductor_id, NumBus, Soat})
-            await transporte.save()
+            transporte.save()
             res.json({transporte})
         } catch (error) {
             res.status(400).json({ error })
