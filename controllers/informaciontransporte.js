@@ -28,11 +28,6 @@ const httpTransporte= {
             res.status(400).json({ error })
         }
     },
-
-
-
-
-
     putTransporte: async (req, res)=>{
         try {
             const {id} = req.params
