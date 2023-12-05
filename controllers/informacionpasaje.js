@@ -42,11 +42,10 @@ const httpinfopasaje = {
           $lte: new Date(fechaFin),
         },
       })
-        .populate("Cliente_id")
-        .populate("Transporte_id")
-        
-        .populate("Ruta_id")
-        .populate("Vendedor_id")
+      .populate("Cliente_id")
+      .populate("Transporte_id"/* ,["conductor_id.nombre"] */)
+      .populate("Ruta_id")
+      .populate("Vendedor_id")
 
 
       res.json({ Pasaje });
@@ -60,11 +59,10 @@ const httpinfopasaje = {
       const vendedorId = req.params.vendedorId;
 
       const Pasajes = await InformacionPasaje.find({ Vendedor_id: vendedorId })
-        .populate("Cliente_id")
-           .populate("Transporte_id",["conductor_id"])
-
-        .populate("Ruta_id")
-        .populate("Vendedor_id")
+      .populate("Cliente_id")
+      .populate("Transporte_id"/* ,["conductor_id.nombre"] */)
+      .populate("Ruta_id")
+      .populate("Vendedor_id")
         
 
       res.json({ Pasajes });
