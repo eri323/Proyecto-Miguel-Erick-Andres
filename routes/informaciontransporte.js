@@ -1,5 +1,7 @@
 import { Router } from "express"
 import {check} from "express-validator"
+import helpersBus from "../helpers/hp-trasporte.js";
+import helpersGeneral from "../helpers/hp-general.js";
 import httpTransporte from "../controllers/informaciontransporte.js"
 import validarCampos from "../middelwares/validarcampos.js"
 
@@ -15,6 +17,12 @@ router.post('/transcrear', [
     check("conductor_id", "Especifique el conductor_id").not().isEmpty(),
     check("NumBus", "Especifique el numero del bus").not().isEmpty(),
     check("Soat", "Especifique la fecha de vencimiento del soat").not().isEmpty(),
+    check('Vehiculo').custom(helpersGeneral.verificarEspacios),
+    check('NumAsientos').custom(helpersGeneral.verificarEspacios),
+    check('conductor_id').custom(helpersGeneral.verificarEspacios),
+    check('Soat').custom(helpersGeneral.verificarEspacios),
+    check('NumBus').custom(helpersGeneral.verificarEspacios),
+    check('conductor_id').custom(helpersBus.conductorActivo),
     validarCampos
 ], httpTransporte.postTransporte)
 
@@ -24,6 +32,12 @@ router.put('/transmodificar/:id', [
     check("conductor_id", "Especifique el conductor_id").not().isEmpty(),
     check("NumBus", "Especifique el numero del bus").not().isEmpty(),
     check("Soat", "Especifique la fecha de vencimiento del soat").not().isEmpty(),
+    check('Vehiculo').custom(helpersGeneral.verificarEspacios),
+    check('NumAsientos').custom(helpersGeneral.verificarEspacios),
+    check('conductor_id').custom(helpersGeneral.verificarEspacios),
+    check('Soat').custom(helpersGeneral.verificarEspacios),
+    check('NumBus').custom(helpersGeneral.verificarEspacios),
+    check('conductor_id').custom(helpersBus.conductorActivo),
     validarCampos
 ], httpTransporte.putTransporte)
 
