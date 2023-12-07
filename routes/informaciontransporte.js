@@ -26,7 +26,7 @@ router.post('/transcrear', [
     check('NumAsientos').custom(helpersGeneral.verificarEspacios),
     check('conductor_id').custom(helpersGeneral.verificarEspacios),
     check('Soat').custom(helpersGeneral.verificarEspacios),
-    check('Soat').custom(helpersBus.validarFechaSoat),
+   /*  check('Soat', "Fecha no permitida").custom(helpersBus.validarFechaSoat), */
     check('NumBus').custom(helpersGeneral.verificarEspacios),
     check('conductor_id').custom(helpersBus.conductorActivo),
     validarCampos
