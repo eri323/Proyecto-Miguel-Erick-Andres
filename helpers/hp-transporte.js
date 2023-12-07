@@ -1,6 +1,6 @@
 import Bus from "../models/informaciontransporte.js"
 import Conductor from '../models/conductor.js'
-import { isValid, isAfter } from 'date-fns';
+import { isValid, isBefore } from 'date-fns';
 
 const helpersBus = {
     comprobarCantAsientos: async (asiento)=>{
@@ -27,10 +27,12 @@ const helpersBus = {
          throw new Error('El conductor esta inactivo.')
         }
     },
-    validarFechaSoat: async(Soat) => {
+    validarFechaSoat: (Soat) => {
+        // Convertir la fecha de string a objeto Date
         const fechaSoat = new Date(Soat);
     
-        if (!isValid(fechaSoat) || isAfter(fechaSoat, new Date())) {
+        // Verificar si la fecha es válida y es anterior o igual a la fecha actual
+        if (!isValid(fechaSoat) || isBefore(fechaSoat, new Date())) {
           throw new Error('La fecha de vencimiento del SOAT debe ser válida y posterior a hoy.');
         }
       },
