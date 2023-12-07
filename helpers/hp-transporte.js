@@ -5,7 +5,7 @@ import { isValid, isAfter } from 'date-fns';
 const helpersBus = {
     comprobarCantAsientos: async (asiento)=>{
         
-        if(asiento>40){
+        if(asiento>30){
             throw new Error("El número de asientos debe ser igual o inferior a 30")
         }
 
