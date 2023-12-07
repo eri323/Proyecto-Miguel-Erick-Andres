@@ -42,10 +42,10 @@ const httpinfopasaje = {
           $lte: new Date(fechaFin),
         },
       })
-      .populate("Cliente_id")
-      .populate("Transporte_id"/* ,["conductor_id.nombre"] */)
-      .populate("Ruta_id")
-      .populate("Vendedor_id")
+        .populate("Cliente_id")
+        .populate("Transporte_id"/* ,["conductor_id.nombre"] */)
+        .populate("Ruta_id")
+        .populate("Vendedor_id")
 
 
       res.json({ Pasaje });
@@ -59,11 +59,11 @@ const httpinfopasaje = {
       const vendedorId = req.params.vendedorId;
 
       const Pasajes = await InformacionPasaje.find({ Vendedor_id: vendedorId })
-      .populate("Cliente_id")
-      .populate("Transporte_id"/* ,["conductor_id.nombre"] */)
-      .populate("Ruta_id")
-      .populate("Vendedor_id")
-        
+        .populate("Cliente_id")
+        .populate("Transporte_id"/* ,["conductor_id.nombre"] */)
+        .populate("Ruta_id")
+        .populate("Vendedor_id")
+
 
       res.json({ Pasajes });
     } catch (error) {
@@ -73,21 +73,28 @@ const httpinfopasaje = {
   postPasaje: async (req, res) => {
     try {
       const {
-        Nmro_ticket,
-        /*  tipo_venta, */ fecha_venta,
-        /* Num_pasajes */ Vendedor_id,
+        fecha_venta,
+        Vendedor_id,
         Cliente_id,
         Ruta_id,
         Transporte_id,
       } = req.body;
+  
+      // Obtén el último número de ticket existente
+      const ultimoPasaje = await InformacionPasaje.findOne({}, {}, { sort: { 'createdAt' : -1 }});
+  
+      // Calcula el nuevo número del ticket
+      const nuevoNumeroTicket = ultimoPasaje ? Number(ultimoPasaje.Nmro_ticket) + 1 : 1;
+  
       const pasaje = new InformacionPasaje({
-        Nmro_ticket,
-        /*  tipo_venta, */ fecha_venta,
-        /* Num_pasajes */ Vendedor_id,
+        Nmro_ticket: String(nuevoNumeroTicket).padStart(6, '0'),
+        fecha_venta,
+        Vendedor_id,
         Cliente_id,
         Ruta_id,
         Transporte_id,
       });
+  
       await pasaje.save();
       res.json({ pasaje });
     } catch (error) {

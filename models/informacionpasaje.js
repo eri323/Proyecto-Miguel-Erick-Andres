@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 const InformacionPasaje = new mongoose.Schema({
-    Nmro_ticket: { type: String, require: true },
+    Nmro_ticket: { type: Number, require: true },
 /*     tipo_venta: { type: String, require: true }, */
     fecha_venta: { type: Date, require: true, default: Date.now },
     /* Num_pasajes: { type: Number, require: true }, */
