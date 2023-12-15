@@ -78,6 +78,7 @@ const httpinfopasaje = {
         Cliente_id,
         Ruta_id,
         Transporte_id,
+        N_asiento
       } = req.body;
   
       // Obtén el último número de ticket existente
@@ -93,6 +94,7 @@ const httpinfopasaje = {
         Cliente_id,
         Ruta_id,
         Transporte_id,
+        N_asiento
       });
   
       await pasaje.save();
@@ -111,6 +113,7 @@ const httpinfopasaje = {
         Cliente_id,
         Ruta_id,
         Transporte_id,
+        N_asiento
       } = req.body;
       const pasaje = await InformacionPasaje.findByIdAndUpdate(
         id,
@@ -121,6 +124,7 @@ const httpinfopasaje = {
           Cliente_id,
           Ruta_id,
           Transporte_id,
+          N_asiento
         },
         { new: true }
       );

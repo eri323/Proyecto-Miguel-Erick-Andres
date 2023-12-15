@@ -7,6 +7,7 @@ const InformacionPasaje = new mongoose.Schema({
     fecha_venta: { type: Date, require: true, default: Date.now },
     /* Num_pasajes: { type: Number, require: true }, */
     // Total_pasajes: { type: Number, require: true },
+    N_asiento: { type: Number, require: true },
     Vendedor_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Vendedor', require: true },
     Cliente_id: { type: mongoose.Schema.Types.ObjectId, ref:'InformacionCliente', require:true},
     Ruta_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Ruta', require: true },
