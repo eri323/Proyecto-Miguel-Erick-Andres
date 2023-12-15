@@ -197,15 +197,52 @@ const httpinfopasaje = {
 
   getAsientosOcupados: async(req, res)=>{
     try {
-      const { fecha_venta, Ruta_id, Transporte_id} = req.params //Id de la ruta
+      const { fecha_venta, Ruta_id, Transporte_id} = req.params 
 
-      const asientos = await Tiquete.find({ $and: [{Ruta_id}, {fecha_venta},{Transporte_id}]})
+      console.log(fecha_venta);
+
+
+      const f1 = new Date(fecha_venta+'T00:00:00.000Z')
+      const f2 = new Date(fecha_venta+'T23:59:59.000Z')
+
+      const asientos = await InformacionPasaje.find({ $and: [{Ruta_id}, {fecha_venta: {
+        $gte:f1,
+        $lte:f2
+      }},{Transporte_id}]})
 
       res.json(asientos)
     } catch (error) {
       res.status(400).json({error})
     }
   },
+  // buscarRuta:async (req, res) =>{
+  //   const {codigo, bus, fecha} = req.query;
+  //   const idRuta = await Ruta.findOne({codigo})
+  //   const idBus = await Bus.findOne({num_vehiculo:bus})
+
+  //   const f1 = new Date(fecha+"T00:00:00.000Z")
+  //   const f2 = new Date(fecha+"T23:59:59.000Z")
+  //   const buscar= await Ticket.find({
+  //     $and:[
+  //       {ruta:idRuta._id},
+  //       {vehiculo:idBus._id},
+  //       {fecha_salida:
+  //         {$gte: f1,
+  //         $lte: f2 }
+  //       },
+  //     ]
+  //   }).populate("vehiculo")
+  //   .populate("ruta")
+  //   .populate("cliente")
+
+  //   let puestos=[]
+
+  //   buscar.forEach((r,i)=>{
+  //     puestos.push(r.numero_puesto)
+  //   })
+
+  //   res.json({buscar, puestos})
+  // }
 };
 
 

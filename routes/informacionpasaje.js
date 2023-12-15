@@ -21,7 +21,7 @@ router.get('/pasajebuscaid/:id', [
     validarCampos
 ],  httpinfoPasaje.getPasajeId)
 router.get(
-    "/asientosOcupados/:Transporte_id/:fecha_salida/:Ruta_id",
+    "/asientosOcupados/:Transporte_id/:fecha_venta/:Ruta_id",
     httpinfoPasaje.getAsientosOcupados
   );
 
