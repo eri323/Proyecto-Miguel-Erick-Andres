@@ -42,12 +42,12 @@ router.post('/pasajecrear', [
     //check("Valor_id", "Digite el id del valor").isMongoId(),    
     // check("Asiento_id", "Digite el id del asiento").isMongoId(),
     check("Transporte_id", "Digite el id del transporte").isMongoId(),
-    check("cliente").custom(helpersTiquete.clienteActivo),
-    check('vendedor').custom(helpersTiquete.vendedorActivo),
+    /* check("cliente").custom(helpersTiquete.clienteActivo), */
+    /* check('vendedor').custom(helpersTiquete.vendedorActivo), */
     check("num_asiento", "Debe ingresar un asiento").notEmpty(),
-    check("num_asiento", "Debe ingresar un asiento").custom(
+  /*   check("num_asiento", "Debe ingresar un asiento").custom(
       helpersTiquete.validarAsiento
-    ),
+    ), */
     
     validarCampos
 ], httpinfoPasaje.postPasaje)
