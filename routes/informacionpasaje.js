@@ -44,7 +44,7 @@ router.post('/pasajecrear', [
     check("Transporte_id", "Digite el id del transporte").isMongoId(),
     /* check("cliente").custom(helpersTiquete.clienteActivo), */
     /* check('vendedor').custom(helpersTiquete.vendedorActivo), */
-    check("num_asiento", "Debe ingresar un asiento").notEmpty(),
+    check("N_asiento", "Debe ingresar un asiento").notEmpty(),
   /*   check("num_asiento", "Debe ingresar un asiento").custom(
       helpersTiquete.validarAsiento
     ), */
