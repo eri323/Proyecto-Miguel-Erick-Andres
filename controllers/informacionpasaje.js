@@ -194,6 +194,19 @@ const httpinfopasaje = {
 
     res.json({ buscar, puestos });
   },
+
+  getAsientosOcupados: async(req, res)=>{
+    try {
+      const { fecha_venta, Ruta_id, Transporte_id} = req.params //Id de la ruta
+
+      const asientos = await Tiquete.find({ $and: [{Ruta_id}, {fecha_venta},{Transporte_id}]})
+
+      res.json(asientos)
+    } catch (error) {
+      res.status(400).json({error})
+    }
+  },
 };
+
 
 export default httpinfopasaje;

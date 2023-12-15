@@ -20,7 +20,10 @@ router.get('/pasajebuscaid/:id', [
     check('id').custom(HelperPasaje.existepasajeid),
     validarCampos
 ],  httpinfoPasaje.getPasajeId)
-
+router.get(
+    "/asientosOcupados/:Transporte_id/:fecha_salida/:Ruta_id",
+    httpinfoPasaje.getAsientosOcupados
+  );
 
 router.get('/pasajebuscaidvendedor/:id',[], httpinfoPasaje.getTicketIdVendedor)
 
